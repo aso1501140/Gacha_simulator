@@ -1,6 +1,7 @@
 package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
@@ -17,5 +18,10 @@ public class DBManager extends SQLiteOpenHelper {
 
     public DBManager(Context context){
         super(context,"simulator.sqlite3",null,1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE ");
     }
 }
