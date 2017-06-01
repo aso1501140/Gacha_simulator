@@ -22,6 +22,12 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE ");
+        db.execSQL("CREATE TABLE game(gid integer primarykey autoincrement,title text,money integer,stone integer;)");
+        db.execSQL("CREATE TABLE percent()");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
     }
 }
