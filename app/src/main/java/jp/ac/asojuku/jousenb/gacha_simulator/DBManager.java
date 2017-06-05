@@ -23,7 +23,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE game(gid integer primarykey autoincrement,title text,money integer,stone integer;)");
-        db.execSQL("CREATE TABLE percent()");
+        db.execSQL("CREATE TABLE percent(gid integer,rarelity text,percent integer,primary key(gid,rarelity))");
     }
 
     @Override
