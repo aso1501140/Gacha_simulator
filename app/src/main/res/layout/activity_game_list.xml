@@ -40,15 +40,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
+            <Button
+                android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:id="@+id/textView2"
-                android:text="ド〇ゴンクエスト"
-                android:layout_below="@+id/view"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:background="#00000000"
+                android:text="〇〇クエスト" />
 
             <View
                 android:layout_width="fill_parent"
@@ -60,15 +57,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
+            <Button
+                android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:text="〇〇クエスト2"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/view2"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:background="#00000000"
+                android:text="〇〇クエスト" />
 
             <View
                 android:layout_width="fill_parent"
@@ -80,15 +74,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
+            <Button
+                android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="〇〇クエスト3"
-                android:layout_below="@+id/view3"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/TextView3" />
+                android:background="#00000000"
+                android:text="〇〇クエスト" />
 
             <View
                 android:layout_width="fill_parent"
@@ -100,15 +91,12 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
+            <Button
+                android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
-                android:id="@+id/textView4"
-                android:text="〇〇クエスト4"
-                android:layout_below="@+id/view4"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:background="#00000000"
+                android:text="〇〇クエスト" />
 
             <View
                 android:layout_width="fill_parent"
