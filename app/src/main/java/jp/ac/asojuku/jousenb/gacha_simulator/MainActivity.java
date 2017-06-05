@@ -2,6 +2,7 @@ package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Intent;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    short
+    private SQLiteDatabase sqlDB;
+    DBManager dbm;
 
 
     @Override
@@ -26,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        //フォアグラウンド移行時、データベースを読み取りで開く
+        /*
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+        */
+
+
         Button buttonAction = (Button) findViewById(R.id.register);
 
         buttonAction.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //バッググラウンド時にデータベースを閉じる
+    /*
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sqlDB.close();
+    }
+    */
+
 }
 
 
