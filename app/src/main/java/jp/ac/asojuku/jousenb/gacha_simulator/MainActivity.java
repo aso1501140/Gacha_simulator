@@ -36,14 +36,12 @@ public class MainActivity extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
         */
 
+        Button btn = (Button) findViewById(R.id.register);
 
-        Button buttonAction = (Button) findViewById(R.id.register);
-
-        buttonAction.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        GameListActivity.class);
+                Intent intent = new Intent(MainActivity.this,GameListActivity.class);
                 startActivity(intent);
             }
         });

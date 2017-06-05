@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gacha_simulator</string>
+    <string name="register">登録</string>
+    <string name="gacha">ガチャる</string>
 </resources>
