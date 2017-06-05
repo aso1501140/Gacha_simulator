@@ -14,9 +14,11 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    //テーブルの作成
+    /*
     private SQLiteDatabase sqlDB;
     DBManager dbm;
-
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
