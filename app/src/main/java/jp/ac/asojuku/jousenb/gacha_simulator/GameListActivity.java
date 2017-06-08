@@ -1,3 +1,4 @@
+//27松本優一
 package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Intent;
