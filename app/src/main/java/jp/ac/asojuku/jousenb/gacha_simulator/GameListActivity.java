@@ -19,24 +19,9 @@ public class GameListActivity extends AppCompatActivity {
         super.onResume();
 
         Button buttonAction = (Button) findViewById(R.id.button1);
-
-        buttonAction.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(GameListActivity.this,gacha_activity.class);
-                startActivity(intent);
-            }
-        });
         Button buttonAction2 = (Button) findViewById(R.id.button2);
-
-        buttonAction.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(GameListActivity.this,gacha_activity.class);
-                startActivity(intent);
-            }
-        });
         Button buttonAction3 = (Button) findViewById(R.id.button3);
+        Button buttonAction4 = (Button) findViewById(R.id.button4);
 
         buttonAction.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -45,9 +30,24 @@ public class GameListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button buttonActio4 = (Button) findViewById(R.id.button4);
 
-        buttonAction.setOnClickListener(new View.OnClickListener(){
+        buttonAction2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(GameListActivity.this,gacha_activity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonAction3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(GameListActivity.this,gacha_activity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonAction4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(GameListActivity.this,gacha_activity.class);
