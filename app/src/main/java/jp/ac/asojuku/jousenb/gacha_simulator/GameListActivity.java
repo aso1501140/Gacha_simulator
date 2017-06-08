@@ -56,3 +56,4 @@ public class GameListActivity extends AppCompatActivity {
         });
     }
 }
+//やあ
