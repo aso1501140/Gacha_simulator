@@ -30,11 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //フォアグラウンド移行時、データベースを読み取りで開く
-        /*
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
-        */
+
 
 
         Button buttonAction = (Button) findViewById(R.id.register);
