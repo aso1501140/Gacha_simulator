@@ -15,17 +15,15 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     //テーブルの作成
-    /*
+
     private SQLiteDatabase sqlDB;
     DBManager dbm;
-    */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        
     }
 
     @Override
@@ -38,35 +36,27 @@ public class MainActivity extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
         */
 
-        Button btn = (Button) findViewById(R.id.register);
-        Button button = (Button) findViewById(R.id.button2);
-        btn.setOnClickListener(new View.OnClickListener() {
+
+        Button buttonAction = (Button) findViewById(R.id.register);
+
+        buttonAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, GameListActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, GameListActivity.class);
+                Intent intent = new Intent(MainActivity.this,
+                        GameListActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     //バッググラウンド時にデータベースを閉じる
-    /*
+
     @Override
     protected void onPause() {
         super.onPause();
         sqlDB.close();
     }
-    */
+
 
 }
 

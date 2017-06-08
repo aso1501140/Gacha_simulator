@@ -22,8 +22,9 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE game(gid integer primarykey autoincrement,title text,money integer,stone integer;)");
-        db.execSQL("CREATE TABLE percent(gid integer,rarelity text,percent integer,primary key(gid,rarelity))");
+        db.execSQL("CREATE TABLE IF NOT EXISTS game(gid INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT,money INTEGER,stone INTEGER)");
+        //db.execSQL("CREATE TABLE IF NOT EXISTS percent(gid INTERGER,rarelity TEXT,percent integer,PRIMARY KEY(gid,rarelity)");
+
     }
 
     @Override
