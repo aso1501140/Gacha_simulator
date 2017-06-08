@@ -30,11 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //フォアグラウンド移行時、データベースを読み取りで開く
-        /*
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
-        */
+
 
 
         Button buttonAction = (Button) findViewById(R.id.register);
@@ -47,7 +45,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button button2Action = (Button) findViewById(R.id.button2);
+
+        button2Action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        GameListActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+
 
     //バッググラウンド時にデータベースを閉じる
 

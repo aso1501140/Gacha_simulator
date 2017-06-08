@@ -33,9 +33,10 @@
         android:text="@string/gacha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button"
+        android:id="@+id/button2"
+        android:layout_alignBaseline="@+id/register"
+        android:layout_alignBottom="@+id/register"
         android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:id="@+id/button2" />
+        android:layout_alignEnd="@+id/textView" />
 
 </RelativeLayout>
