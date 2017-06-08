@@ -37,11 +37,21 @@ public class MainActivity extends AppCompatActivity {
         */
 
         Button btn = (Button) findViewById(R.id.register);
-
+        Button button = (Button) findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,GameListActivity.class);
+                Intent intent = new Intent(MainActivity.this, GameListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GameListActivity.class);
                 startActivity(intent);
             }
         });
