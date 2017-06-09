@@ -18,7 +18,7 @@ public class dataActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dataActivity.this, GameListActivity.class);
+                Intent intent = new Intent(dataActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
