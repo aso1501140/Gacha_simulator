@@ -23,12 +23,15 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS game(gid INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT,money INTEGER,stone INTEGER)");
-        //db.execSQL("CREATE TABLE IF NOT EXISTS percent(gid INTERGER,rarelity TEXT,percent integer,PRIMARY KEY(gid,rarelity)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS percent(gid INTEGER, rarelity TEXT, percent INTEGER,PRIMARY KEY(gid, rarelity));");
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
+        //db.execSQL("DROP TABLE game");
+        //onCreate(db);
+
 
     }
 }

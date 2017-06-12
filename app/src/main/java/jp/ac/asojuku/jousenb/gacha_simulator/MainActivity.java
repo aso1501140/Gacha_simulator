@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
