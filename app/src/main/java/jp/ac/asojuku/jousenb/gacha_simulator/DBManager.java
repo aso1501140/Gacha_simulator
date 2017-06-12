@@ -32,6 +32,11 @@ public class DBManager extends SQLiteOpenHelper {
         //db.execSQL("DROP TABLE game");
         //onCreate(db);
 
-
     }
+public void insert(SQLiteDatabase db,String inputMessage){
+    String sql = "INSERT INTO touroku(phrase) VALUES(?)";
+    //DML文、DDL文の実行するときはexecSQLメソッドを使用
+    db.execSQL(sql,new String[]{inputMessage});
+}
+
 }

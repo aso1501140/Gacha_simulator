@@ -15,30 +15,30 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText14"
+        android:id="@+id/onece"
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/editText13"
-        android:layout_alignStart="@+id/editText13" />
+        android:layout_alignLeft="@+id/R"
+        android:layout_alignStart="@+id/R" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText13"
+        android:id="@+id/R"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
-        android:layout_alignLeft="@+id/editText12"
-        android:layout_alignStart="@+id/editText12" />
+        android:layout_alignLeft="@+id/SR"
+        android:layout_alignStart="@+id/SR" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/editText11"
+        android:id="@+id/SSR"
         android:layout_alignBaseline="@+id/textView6"
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignParentRight="true"
@@ -107,53 +107,53 @@
         android:layout_toStartOf="@+id/textView3" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/taitoru"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:selectAllOnFocus="false"
-        android:singleLine="true"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText12"
+        android:id="@+id/SR"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/editText11"
-        android:layout_alignStart="@+id/editText11" />
+        android:layout_alignLeft="@+id/SSR"
+        android:layout_alignStart="@+id/SSR" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText10"
-        android:layout_below="@+id/editText14"
+        android:id="@+id/gachastone"
+        android:layout_below="@+id/onece"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="13dp"
-        android:layout_alignLeft="@+id/editText14"
-        android:layout_alignStart="@+id/editText14" />
+        android:layout_alignLeft="@+id/onece"
+        android:layout_alignStart="@+id/onece" />
 
     <TextView
         android:text="ガチャ石消費数"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView9"
-        android:layout_alignBaseline="@+id/editText10"
-        android:layout_alignBottom="@+id/editText10"
+        android:layout_alignBaseline="@+id/gachastone"
+        android:layout_alignBottom="@+id/gachastone"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
 
@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:id="@+id/textView3"
-        android:layout_below="@+id/editText9"
+        android:layout_below="@+id/taitoru"
         android:layout_centerHorizontal="true" />
 
     <TextView
