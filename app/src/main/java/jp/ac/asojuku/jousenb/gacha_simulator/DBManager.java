@@ -1,6 +1,7 @@
 package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -33,10 +34,22 @@ public class DBManager extends SQLiteOpenHelper {
         //onCreate(db);
 
     }
-public void insert(SQLiteDatabase db,String inputMessage){
-    String sql = "INSERT INTO touroku(phrase) VALUES(?)";
-    //DML文、DDL文の実行するときはexecSQLメソッドを使用
-    db.execSQL(sql,new String[]{inputMessage});
-}
 
+    public void insert(SQLiteDatabase db,String inputMessage){
+        String sql = "INSERT INTO game(phrase) VALUES(?)";
+        //DML文、DDL文の実行するときはexecSQLメソッドを使用
+        db.execSQL(sql,new String[]{inputMessage});
+    }
+
+    //ゲームリストを取得
+    public SQLiteCursor selectGameList(SQLiteDatabase db){
+        String selectSql = "SELECT * FROM game ORDER BY id";
+        SQLiteCursor cursor = (SQLiteCursor)db.rawQuery(selectSql, null);
+        return cursor;
+    }
+    //ゲームリスト削除
+    public void deleteGameList(SQLiteDatabase db, int id){
+        String deleteSql = "DELETE FROM game WHERE _id = ?";
+        db.execSQL(deleteSql,new String[]{String.valueOf(id)});
+    }
 }
