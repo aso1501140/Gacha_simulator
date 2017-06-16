@@ -36,20 +36,22 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     public void insert(SQLiteDatabase db,String inputMessage){
-        String sql = "INSERT INTO game(phrase) VALUES(?)";
+        String sql = "INSERT INTO game(gid,title,money,stone) VALUES(?,?,?,?)";
+        String sql1 = "INSERT INTO parsent(gid,rarelity,TEXT,percent) VALUES(?,?,?)";
         //DML文、DDL文の実行するときはexecSQLメソッドを使用
         db.execSQL(sql,new String[]{inputMessage});
     }
 
     //ゲームリストを取得
     public SQLiteCursor selectGameList(SQLiteDatabase db){
-        String selectSql = "SELECT * FROM game ORDER BY id";
+        String selectSql = "SELECT * FROM game ORDER BY gid";
         SQLiteCursor cursor = (SQLiteCursor)db.rawQuery(selectSql, null);
         return cursor;
     }
+
     //ゲームリスト削除
     public void deleteGameList(SQLiteDatabase db, int id){
-        String deleteSql = "DELETE FROM game WHERE _id = ?";
+        String deleteSql = "DELETE FROM game WHERE _id = gid";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
     }
 }
