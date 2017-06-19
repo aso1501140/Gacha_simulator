@@ -51,7 +51,8 @@ public class DBManager extends SQLiteOpenHelper {
 
     //ゲームリスト削除
     public void deleteGameList(SQLiteDatabase db, int id){
-        String deleteSql = "DELETE FROM game WHERE _id = gid";
+        String deleteSql = "DELETE FROM game WHERE gid = ?";
+        String deleteSql1 = "DELETE FROM percent WHERE gid = ?";
         db.execSQL(deleteSql,new String[]{String.valueOf(id)});
     }
 }
