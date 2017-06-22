@@ -51,7 +51,7 @@ private SQLiteDatabase sqlDB;
         super.onResume();
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
-//Edittextと「登録」Buttonを登録
+        //Edittextと「登録」Buttonを登録
         final EditText taitoru = (EditText)findViewById(R.id.taitoru);
 
         final EditText esuesu = (EditText)findViewById(R.id.SSR);

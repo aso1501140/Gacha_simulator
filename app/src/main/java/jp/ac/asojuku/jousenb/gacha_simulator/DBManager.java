@@ -36,7 +36,7 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     public void insert(SQLiteDatabase db,String inputMessage){
-        String sql = "INSERT INTO game(gid,title,money,stone) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO game(title,money,stone) VALUES(?,?,?)";
         String sql1 = "INSERT INTO parsent(gid,rarelity,TEXT,percent) VALUES(?,?,?)";
         //DML文、DDL文の実行するときはexecSQLメソッドを使用
         db.execSQL(sql,new String[]{inputMessage});
