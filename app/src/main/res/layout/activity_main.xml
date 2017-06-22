@@ -27,16 +27,19 @@
         android:id="@+id/register"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_alignStart="@+id/textView"
+        />
+
 
     <Button
-        android:text="@string/gacha"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_alignBaseline="@+id/register"
         android:layout_alignBottom="@+id/register"
+        android:layout_alignEnd="@+id/textView"
         android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:text="@string/gacha"
+
+        />
 
 </RelativeLayout>
