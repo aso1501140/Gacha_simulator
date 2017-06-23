@@ -19,9 +19,18 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     private SQLiteDatabase sqlDB;
     DBManager dbm;
 
+
+
     //変数
     int selectedID = -1;
     int lastPosition = -1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_list);
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -32,7 +41,8 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     protected void onResume() {
         super.onResume();
 
-        Button buttonAction1 = (Button) findViewById(R.id.button1);
+
+        Button buttonAction1 = (Button)findViewById(R.id.button1) ;
         Button buttonAction2 = (Button) findViewById(R.id.button2);
         Button buttonAction3 = (Button) findViewById(R.id.button3);
         ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
