@@ -32,7 +32,6 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     protected void onResume() {
         super.onResume();
 
-
         Button buttonAction1 = (Button) findViewById(R.id.button1);
         Button buttonAction2 = (Button) findViewById(R.id.button2);
         Button buttonAction3 = (Button) findViewById(R.id.button3);
@@ -42,7 +41,8 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         buttonAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(GameListActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -71,13 +71,17 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         buttonAction3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
-                startActivity(intent);
+                //行がある
+                if (lastPosition != -1) {
+                    //ここにデータを送る処理を書く
+                    Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
+                    startActivity(intent);
+                }
             }
         });
 
        //リストビューを押された時の処理
-       /*listAction.setOnClickListener(new AdapterView.OnItemClickListener(){
+       listAction.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 if(selectedID != -1){
@@ -90,7 +94,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
 
                 lastPosition = position;
             }
-       });*/
+       });
         setValueToList(listAction);
     }
     //リスト表示用
