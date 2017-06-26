@@ -23,9 +23,14 @@
             android:layout_marginBottom="5dp" >
 
             <TextView
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:textSize="18dp" android:text="内訳："  android:layout_span="3"
-                android:padding="18dip" android:background="#b0b0b0"
+                android:id="@+id/TextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="内訳："
+                android:layout_span="3"
+                android:padding="18dip"
+                android:background="#b0b0b0"
                 android:textColor="#000"/>
 
         </TableRow>
@@ -37,7 +42,6 @@
 
             <TextView
                 android:id="@+id/TextView2"
-                android:text="消費石："
                 android:layout_width="175dp"
                 android:layout_weight="1"
                 android:background="#dcdcdc"
@@ -47,7 +51,6 @@
 
             <TextView
                 android:id="@+id/TextView3"
-                android:text="推定金額："
                 android:layout_width="175dp"
                 android:layout_weight="1"
                 android:background="#d3d3d3"
@@ -128,6 +131,30 @@
             android:layout_height="match_parent" />
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView11"
+        android:layout_alignRight="@+id/textView11"
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="35dp" />
 
 
 </RelativeLayout>

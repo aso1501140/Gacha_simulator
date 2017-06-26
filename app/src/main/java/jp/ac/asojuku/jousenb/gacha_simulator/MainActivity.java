@@ -56,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button button4Action = (Button) findViewById(R.id.button4);
+
+        button4Action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,
+                        gacha_activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
