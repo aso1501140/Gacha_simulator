@@ -33,11 +33,10 @@ public class MainActivity extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
-
-
         Button buttonAction = (Button) findViewById(R.id.register);
 
         buttonAction.setOnClickListener(new View.OnClickListener() {
+            //データの登録
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,
@@ -50,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         button2Action.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                //ゲームリスト
                 Intent intent = new Intent(MainActivity.this,
                         GameListActivity.class);
                 startActivity(intent);

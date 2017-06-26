@@ -3,6 +3,7 @@ package jp.ac.asojuku.jousenb.gacha_simulator;
 import android.content.Intent;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +11,26 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class GameListActivity extends AppCompatActivity implements  AdapterView.OnItemClickListener{
 
     //データベース操作
     private SQLiteDatabase sqlDB;
     DBManager dbm;
+
+
+
+    //変数
+    int selectedID = -1;
+    int lastPosition = -1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_list);
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -27,7 +42,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         super.onResume();
 
 
-        Button buttonAction1 = (Button) findViewById(R.id.button1);
+        Button buttonAction1 = (Button)findViewById(R.id.button1) ;
         Button buttonAction2 = (Button) findViewById(R.id.button2);
         Button buttonAction3 = (Button) findViewById(R.id.button3);
         ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
@@ -36,7 +51,8 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         buttonAction1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(GameListActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -44,7 +60,20 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         buttonAction2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //行がある
+                if (lastPosition != -1){
+                    dbm.deleteGameList(sqlDB, selectedID);
 
+                    //削除後のデータをリスト表示
+                    ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
+                    setValueToList(listAction);
+
+                    //初期値に戻す
+                    selectedID = -1;
+                    lastPosition = -1;
+                }else {
+                    Toast.makeText(getApplicationContext(),"削除する行を選択してください",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -52,17 +81,30 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         buttonAction3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
-                startActivity(intent);
+                //行がある
+                if (lastPosition != -1) {
+                    //ここにデータを送る処理を書く
+                    Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
+                    startActivity(intent);
+                }
             }
         });
 
        //リストビューを押された時の処理
-       /* listGame.setOnClickListener(new AdapterView.OnItemClickListener(){
+       listAction.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                if(selectedID != -1){
+                    parent.getChildAt(lastPosition).setBackgroundColor(0);
+                }
+                view.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),  R.color.tap_color));
+                SQLiteCursor cursor = (SQLiteCursor)parent.getItemAtPosition(position);
+
+                selectedID = cursor.getInt(cursor.getColumnIndex("gid"));
+
+                lastPosition = position;
             }
-        });*/
+       });
         setValueToList(listAction);
     }
     //リスト表示用
@@ -80,7 +122,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         int dblayout = android.R.layout.simple_list_item_1;
 
         //リストビューに表示する列
-        String[] from = {"game"};
+        String[] from = {"title"};
 
         //データの表示位置
         int[] to = new int[]{android.R.id.text1};
