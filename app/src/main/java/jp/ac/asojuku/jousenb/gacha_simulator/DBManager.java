@@ -17,6 +17,8 @@ public class DBManager extends SQLiteOpenHelper {
     version 書き換え時に毎回数値を上げる　1,2...
      */
 
+    //ぷりぷり
+
     public DBManager(Context context){
         super(context,"simulator.sqlite3",null,1);
     }
