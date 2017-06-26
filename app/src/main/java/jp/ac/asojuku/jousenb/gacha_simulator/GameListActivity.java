@@ -122,7 +122,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         int dblayout = android.R.layout.simple_list_item_1;
 
         //リストビューに表示する列
-        String[] from = {"game"};
+        String[] from = {"title"};
 
         //データの表示位置
         int[] to = new int[]{android.R.id.text1};
