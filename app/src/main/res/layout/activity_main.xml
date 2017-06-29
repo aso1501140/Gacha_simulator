@@ -42,4 +42,14 @@
 
         />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register"
+        android:layout_marginTop="106dp"
+        android:layout_toEndOf="@+id/register"
+        android:layout_toRightOf="@+id/register"
+        android:text="本物" />
+
 </RelativeLayout>
