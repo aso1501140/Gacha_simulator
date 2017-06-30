@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="jp.ac.asojuku.jousenb.gacha_simulator.probabilityActivity">
+
+    <TextView
+        android:id="@+id/probability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="確率"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/SSR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/probability"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="60dp"
+        android:text="SSR"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/esuesu"
@@ -12,85 +35,73 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="132dp" />
-
-    <TextView
-        android:id="@+id/probability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="確率"
-        android:textSize="36sp"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="37dp" />
-
-    <TextView
-        android:id="@+id/SSR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SSR"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="132dp" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="132dp" />
+        android:layout_alignBaseline="@+id/SSR"
+        android:layout_alignBottom="@+id/SSR"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/SR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/SSR"
+        android:layout_alignRight="@+id/SSR"
+        android:layout_below="@+id/esuesu"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="58dp"
         android:text="SR"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="254dp" />
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/esu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/esuesu"
+        android:layout_alignStart="@+id/esuesu"
+        android:layout_centerVertical="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="247dp" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/R"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:text="R"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="356dp" />
+        android:layout_below="@+id/esu"
+        android:layout_alignLeft="@+id/SR"
+        android:layout_alignStart="@+id/SR" />
 
     <EditText
         android:id="@+id/rea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/esu"
+        android:layout_alignStart="@+id/esu"
+        android:layout_alignTop="@+id/R"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="346dp" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="戻る"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="447dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="31dp"
+        android:layout_toLeftOf="@+id/probability"
+        android:layout_toStartOf="@+id/probability"
+        android:text="戻る" />
 
     <Button
         android:id="@+id/Registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登録"
-        tools:layout_editor_absoluteX="232dp"
-        tools:layout_editor_absoluteY="447dp" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignBaseline="@+id/back"
+        android:layout_alignBottom="@+id/back"
+        android:layout_toEndOf="@+id/probability"
+        android:layout_toRightOf="@+id/probability"
+        android:text="登録" />
+
+</RelativeLayout>

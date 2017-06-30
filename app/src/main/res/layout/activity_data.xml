@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_data"
+    android:id="@+id/consumption"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,26 +11,26 @@
     tools:context="jp.ac.asojuku.jousenb.gacha_simulator.dataActivity">
 
     <Button
-        android:text="登録"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_marginRight="42dp"
-        android:layout_marginEnd="42dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:text="登録" />
 
     <Button
-        android:text="戻る"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="63dp"
+        android:layout_marginStart="63dp"
+        android:text="戻る" />
 
     <TextView
         android:id="@+id/title"
@@ -46,12 +46,12 @@
         android:id="@+id/titlename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title"
         android:layout_marginTop="34dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/gacha"
@@ -67,12 +67,12 @@
         android:id="@+id/one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:text="一回"
-        android:textSize="30sp"
         android:layout_below="@+id/gacha"
+        android:layout_marginTop="47dp"
         android:layout_toLeftOf="@+id/title"
-        android:layout_toStartOf="@+id/title" />
+        android:layout_toStartOf="@+id/title"
+        android:text="一回"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/once"
@@ -85,22 +85,22 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/ consumption"
+        android:id="@+id/consumption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="消費数"
-        android:textSize="24sp"
-        android:layout_marginBottom="28dp"
         android:layout_above="@+id/button"
         android:layout_alignLeft="@+id/one"
-        android:layout_alignStart="@+id/one" />
+        android:layout_alignStart="@+id/one"
+        android:layout_marginBottom="28dp"
+        android:text="消費数"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/consumptionnum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ consumption"
-        android:layout_alignBottom="@+id/ consumption"
+        android:layout_alignBaseline="@+id/consumption"
+        android:layout_alignBottom="@+id/consumption"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_toEndOf="@+id/button"

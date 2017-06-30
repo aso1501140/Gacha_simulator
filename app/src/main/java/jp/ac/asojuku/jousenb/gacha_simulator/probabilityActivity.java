@@ -13,6 +13,7 @@ public class probabilityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_probability);
 
+
         Button btn = (Button) findViewById(R.id.back);
         Button button = (Button) findViewById(R.id.Registration);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -20,9 +21,20 @@ public class probabilityActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(probabilityActivity.this, dataActivity.class);
                 startActivity(intent);
+
             }
-
         });
+        button.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(probabilityActivity.this, GameListActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
     }
+
 }
+

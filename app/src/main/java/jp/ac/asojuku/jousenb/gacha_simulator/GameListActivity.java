@@ -19,8 +19,6 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     private SQLiteDatabase sqlDB;
     DBManager dbm;
 
-
-
     //変数
     int selectedID = -1;
     int lastPosition = -1;
