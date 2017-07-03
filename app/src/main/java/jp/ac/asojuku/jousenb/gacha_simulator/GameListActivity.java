@@ -58,7 +58,9 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         //アダプタをリストビューにセット
         list.setAdapter(adapter);
 
+        cursor.moveToFirst();//カーソルを0に合わせる
         num = cursor.getInt(0);
+
     }
 
     @Override
@@ -116,8 +118,6 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
                     Intent intent = new Intent(getApplicationContext(),gacha_activity.class);
                     intent.putExtra("_id",num);
                     startActivity(intent);
-                    //Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
-                    //startActivity(intent);
                 }else {
                     Toast.makeText(getApplicationContext(),"ガチャる行を選択してください",Toast.LENGTH_LONG).show();
                 }
