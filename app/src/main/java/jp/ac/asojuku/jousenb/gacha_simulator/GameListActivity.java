@@ -23,12 +23,43 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     int selectedID = -1;
     int lastPosition = -1;
 
+    int num;
+
+    //かしこまり
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_list);
     }
 
+    //リスト表示用
+    private void setValueToList(ListView list){
+        SQLiteCursor cursor = null;
+
+        //データベース接続
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+
+        //DBMのメソッド呼び出し
+        cursor = dbm.selectGameList(sqlDB);
+
+        //リストビューの表示形式を指定
+        int dblayout = android.R.layout.simple_list_item_1;
+
+        //リストビューに表示する列
+        String[] from = {"title"};
+
+        //データの表示位置
+        int[] to = new int[]{android.R.id.text1};
+
+        //リストビューに表示するためのアダプタを生成
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, dblayout, cursor, from, to, 0);
+
+        //アダプタをリストビューにセット
+        list.setAdapter(adapter);
+
+        num = cursor.getInt(0);
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -39,10 +70,9 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     protected void onResume() {
         super.onResume();
 
-
-        Button buttonAction1 = (Button)findViewById(R.id.button1) ;
-        Button buttonAction2 = (Button) findViewById(R.id.button2);
-        Button buttonAction3 = (Button) findViewById(R.id.button3);
+        Button buttonAction1 = (Button) findViewById(R.id.backbutton);
+        Button buttonAction2 = (Button) findViewById(R.id.deletebutton);
+        Button buttonAction3 = (Button) findViewById(R.id.gachabutton);
         ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
 
         //戻る
@@ -82,8 +112,14 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
                 //行がある
                 if (lastPosition != -1) {
                     //ここにデータを送る処理を書く
-                    Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
+                    dbm.selectGameList(sqlDB);
+                    Intent intent = new Intent(getApplicationContext(),gacha_activity.class);
+                    intent.putExtra("_id",num);
                     startActivity(intent);
+                    //Intent intent = new Intent(GameListActivity.this, gacha_activity.class);
+                    //startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"ガチャる行を選択してください",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -98,37 +134,11 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
                 view.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),  R.color.tap_color));
                 SQLiteCursor cursor = (SQLiteCursor)parent.getItemAtPosition(position);
 
-                selectedID = cursor.getInt(cursor.getColumnIndex("gid"));
+                selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
 
                 lastPosition = position;
             }
        });
         setValueToList(listAction);
-    }
-    //リスト表示用
-    private void setValueToList(ListView list){
-        SQLiteCursor cursor = null;
-
-        //データベース接続
-        dbm = new DBManager(this);
-        sqlDB = dbm.getWritableDatabase();
-
-        //DBMのメソッド呼び出し
-        cursor = dbm.selectGameList(sqlDB);
-
-        //リストビューの表示形式を指定
-        int dblayout = android.R.layout.simple_list_item_1;
-
-        //リストビューに表示する列
-        String[] from = {"title"};
-
-        //データの表示位置
-        int[] to = new int[]{android.R.id.text1};
-
-        //リストビューに表示するためのアダプタを生成
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, dblayout, cursor, from, to, 0);
-
-        //アダプタをリストビューにセット
-        list.setAdapter(adapter);
     }
 }
