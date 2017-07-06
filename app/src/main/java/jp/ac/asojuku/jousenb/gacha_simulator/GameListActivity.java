@@ -61,6 +61,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         cursor.moveToFirst();//カーソルを0に合わせる
         num = cursor.getInt(0);
 
+
     }
 
     @Override
@@ -108,6 +109,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         });
 
         //ガチャ
+
         buttonAction3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

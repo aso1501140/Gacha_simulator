@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class dataActivity extends AppCompatActivity {
-private SQLiteDatabase sqlDB;
+    private SQLiteDatabase sqlDB;
     DBManager dbm;
 
     @Override
@@ -18,27 +18,7 @@ private SQLiteDatabase sqlDB;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
-        Button btn = (Button) findViewById(R.id.button);
-        Button button = (Button) findViewById(R.id.button2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(dataActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(dataActivity.this, GameListActivity.class);
-                startActivity(intent);
-
-
-            }
-        });
     }
 
     @Override
@@ -52,37 +32,34 @@ private SQLiteDatabase sqlDB;
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
         //Edittextと「登録」Buttonを登録
-        final EditText taitoru = (EditText)findViewById(R.id.taitoru);
+        final EditText title = (EditText)findViewById(R.id.taitoru);
 
-        final EditText esuesu = (EditText)findViewById(R.id.SSR);
+        final EditText SSR = (EditText)findViewById(R.id.SSR);
 
-        final EditText esu = (EditText)findViewById(R.id.SR);
+        final EditText SR = (EditText)findViewById(R.id.SR);
 
-        final EditText rea = (EditText)findViewById(R.id.R);
+        final EditText RR = (EditText)findViewById(R.id.R);
 
         final EditText onece = (EditText)findViewById(R.id.onece);
 
         final EditText gachastone = (EditText)findViewById(R.id.gachastone);
 
-        Button insertButton = (Button)findViewById(R.id.button2);
+        Button insertButton = (Button)findViewById(R.id.regist);
 
-        insertButton.setOnClickListener(new View.OnClickListener() {
+        insertButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                String message = taitoru.getText().toString();
-                //入力文字列があればinsert実行
-                if(message !=null)dbm.insert(sqlDB,message);
+            public void onClick(View view) {
+                String titles = title.getText().toString();
+                String RaritySS = SSR.getText().toString();
+                String RaritySR = SR.getText().toString();
+                String RarityR = RR.getText().toString();
+                String onemore = onece.getText().toString();
+                String gstone = gachastone.getText().toString();
 
-                //入力欄をクリア
-                taitoru.setText("");
-                esuesu.setText("");
-                esu.setText("");
-                rea.setText("");
-                onece.setText("");
-                gachastone.setText("");
 
             }
         });
+
 
     }
 }
