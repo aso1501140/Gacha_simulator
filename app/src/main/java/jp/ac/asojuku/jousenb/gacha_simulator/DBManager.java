@@ -34,7 +34,6 @@ public class DBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion) {
         //db.execSQL("DROP TABLE game");
         //onCreate(db);
-
     }
 
     public void insert(SQLiteDatabase db,String inputMessage){

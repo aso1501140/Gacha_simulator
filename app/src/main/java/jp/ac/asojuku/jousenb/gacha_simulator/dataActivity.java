@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class dataActivity extends AppCompatActivity {
-private SQLiteDatabase sqlDB;
+    private SQLiteDatabase sqlDB;
     DBManager dbm;
 
     @Override
@@ -86,4 +86,3 @@ private SQLiteDatabase sqlDB;
 
     }
 }
-
