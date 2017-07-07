@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class dataActivity extends AppCompatActivity {
-    private SQLiteDatabase sqlDB;
+private SQLiteDatabase sqlDB;
     DBManager dbm;
 
     @Override
@@ -24,7 +25,6 @@ public class dataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(dataActivity.this, MainActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -33,7 +33,7 @@ public class dataActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dataActivity.this, probabilityActivity.class);
+                Intent intent = new Intent(dataActivity.this, GameListActivity.class);
                 startActivity(intent);
 
 
@@ -41,52 +41,49 @@ public class dataActivity extends AppCompatActivity {
         });
     }
 
-        @Override
-        protected void onResume () {
-            super.onResume();
-            dbm = new DBManager(this);
-            sqlDB = dbm.getWritableDatabase();
-        }
-
     @Override
     protected void onPause() {
         super.onPause();
-        sqlDB.close();
+    }
 
-
-        final EditText title = (EditText) findViewById(R.id.titlename);
-
-        final EditText onc = (EditText) findViewById(R.id.once);
-
-        final EditText consnum = (EditText) findViewById(R.id.consumptionnum);
-
-        Button Registration = (Button) findViewById(R.id.button2);
-
-        Registration.setOnClickListener(new View.OnClickListener() {
     @Override
-    public void onClick(View v) {
-        String titlename = title.getText().toString();
+    protected void onResume() {
+        super.onResume();
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+        //Edittextと「登録」Buttonを登録
+        final EditText taitoru = (EditText)findViewById(R.id.taitoru);
 
-        String once = onc.getText().toString();
+        final EditText esuesu = (EditText)findViewById(R.id.SSR);
 
-        String consum = consnum.getText().toString();
+        final EditText esu = (EditText)findViewById(R.id.SR);
 
-        //入力文字列があれば、insert実行
-        if (titlename !=  null)dbm.insert(sqlDB,titlename);
+        final EditText rea = (EditText)findViewById(R.id.R);
 
-        if(once != null)dbm.insert(sqlDB,once);
+        final EditText onece = (EditText)findViewById(R.id.onece);
 
-        if(consnum != null)dbm.insert(sqlDB,once);
+        final EditText gachastone = (EditText)findViewById(R.id.gachastone);
 
-        //入力欄をクリア
-        title.setText("");
-        onc.setText("");
-        consnum.setText("");
+        Button insertButton = (Button)findViewById(R.id.button2);
+
+        insertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = taitoru.getText().toString();
+                //入力文字列があればinsert実行
+                if(message !=null)dbm.insert(sqlDB,message);
+
+                //入力欄をクリア
+                taitoru.setText("");
+                esuesu.setText("");
+                esu.setText("");
+                rea.setText("");
+                onece.setText("");
+                gachastone.setText("");
+
+            }
+        });
 
     }
-});
-    }
-    }
-
-
+}
 
