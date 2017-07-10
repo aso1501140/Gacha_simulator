@@ -52,13 +52,8 @@ public class dataActivity extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
         //Edittextと「登録」Buttonを登録
+
         final EditText taitoru = (EditText)findViewById(R.id.taitoru);
-
-        final EditText esuesu = (EditText)findViewById(R.id.SSR);
-
-        final EditText esu = (EditText)findViewById(R.id.SR);
-
-        final EditText rea = (EditText)findViewById(R.id.R);
 
         final EditText onece = (EditText)findViewById(R.id.onece);
 

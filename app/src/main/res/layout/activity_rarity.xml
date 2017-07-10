@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="レア度"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteX="61dp"
         tools:layout_editor_absoluteY="146dp" />
 
     <TextView
