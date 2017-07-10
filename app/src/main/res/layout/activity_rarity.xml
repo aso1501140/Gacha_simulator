@@ -21,8 +21,8 @@
         android:layout_height="51dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="181dp" />
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="208dp" />
 
     <EditText
         android:id="@+id/percent"
@@ -30,6 +30,40 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="183dp" />
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="レア度"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="確率"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="252dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <Button
+        android:id="@+id/Registration"
+        android:layout_width="104dp"
+        android:layout_height="58dp"
+        android:text="登録"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="415dp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="95dp"
+        android:layout_height="60dp"
+        android:text="戻る"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="415dp" />
 </android.support.constraint.ConstraintLayout>
