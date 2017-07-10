@@ -18,8 +18,8 @@ public class dataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
-        Button btn = (Button) findViewById(R.id.button);
-        Button button = (Button) findViewById(R.id.button2);
+        Button btn = (Button) findViewById(R.id.back);
+        Button button = (Button) findViewById(R.id.Registration);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,26 +53,23 @@ public class dataActivity extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
         //Edittextと「登録」Buttonを登録
 
-        final EditText taitoru = (EditText)findViewById(R.id.taitoru);
+        final EditText title = (EditText)findViewById(R.id.title);
 
         final EditText onece = (EditText)findViewById(R.id.onece);
 
         final EditText gachastone = (EditText)findViewById(R.id.gachastone);
 
-        Button insertButton = (Button)findViewById(R.id.button2);
+        Button insertButton = (Button)findViewById(R.id.Registration);
 
         insertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message = taitoru.getText().toString();
+                String message = title.getText().toString();
                 //入力文字列があればinsert実行
                 if(message !=null)dbm.insert(sqlDB,message);
 
                 //入力欄をクリア
-                taitoru.setText("");
-                esuesu.setText("");
-                esu.setText("");
-                rea.setText("");
+                title.setText("");
                 onece.setText("");
                 gachastone.setText("");
 
