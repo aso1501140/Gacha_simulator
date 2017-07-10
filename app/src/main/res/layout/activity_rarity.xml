@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="44dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/rarity"
         android:layout_width="131dp"
         android:layout_height="51dp"
         android:ems="10"
@@ -25,7 +25,7 @@
         tools:layout_editor_absoluteY="181dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/percent"
         android:layout_width="171dp"
         android:layout_height="50dp"
         android:ems="10"
