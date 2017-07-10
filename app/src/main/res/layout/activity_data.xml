@@ -16,19 +16,19 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/onece"
-        android:layout_above="@+id/gachastone"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_marginBottom="15dp" />
+        android:layout_alignTop="@+id/textView8"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button" />
 
     <TextView
-        android:text="ガチャ金額"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView7"
-        android:layout_above="@+id/textView8"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginTop="14dp"
+        android:text="ガチャ金額"
+        android:textSize="36sp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="登録"
@@ -42,13 +42,17 @@
         android:id="@+id/button2" />
 
     <TextView
-        android:text="1回"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:layout_alignBottom="@+id/onece"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:text="1回"
+        android:textSize="18sp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9" />
 
     <Button
         android:text="戻る"
@@ -63,16 +67,14 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_toRightOf="@+id/textView3"
         android:ems="10"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -89,64 +91,31 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:text="ガチャ石消費数"
-        android:layout_marginBottom="28dp"
+        android:textSize="14sp"
         android:layout_above="@+id/button"
-        android:layout_toLeftOf="@+id/gachastone"
-        android:layout_toStartOf="@+id/gachastone"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2" />
 
     <TextView
-        android:text="確率"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
         android:id="@+id/textView3"
-        android:layout_below="@+id/taitoru"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="確率"
+        android:textSize="36sp" />
 
     <TextView
-        android:text="タイトル"
-        android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:layout_marginTop="56dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView8"
-        android:layout_alignEnd="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="50dp"
-        android:text="レアリティ" />
-
-    <EditText
-        android:id="@+id/Rarity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/textView4"
-        android:layout_toStartOf="@+id/textView4"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/percent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/button"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="タイトル"
+        android:textSize="30sp" />
 
 </RelativeLayout>
