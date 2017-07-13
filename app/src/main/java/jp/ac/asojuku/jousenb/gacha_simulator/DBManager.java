@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
 
 /**
  * Created by hiroyuki matsuda on 2017/05/26.
@@ -36,12 +37,11 @@ public class DBManager extends SQLiteOpenHelper {
         //onCreate(db);
     }
 
-    public void insert(SQLiteDatabase db,String inputMessage){
+    public void insert(SQLiteDatabase db, String t, int m, int s){
         String sql = "INSERT INTO game(title,money,stone) VALUES(?,?,?)";
         String sql1 = "INSERT INTO parsent(_id,rarelity,TEXT,percent) VALUES(?,?,?)";
-        String sql2 = "INSERT INTO data(title,once,consumptionnum) VALUES(?,?,?)";
         //DML文、DDL文の実行するときはexecSQLメソッドを使用1
-        db.execSQL(sql,new String[]{inputMessage});
+        db.execSQL(sql,new String[]{t,String.valueOf(m),String.valueOf(s)});
     }
 
     //ゲームリストを取得

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class gacha_activity extends AppCompatActivity {
 
     double p1 = 0;
