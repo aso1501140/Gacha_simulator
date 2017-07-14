@@ -43,7 +43,7 @@
         android:layout_marginEnd="87dp" />
 
     <EditText
-        android:id="@+id/probability"
+        android:id="@+id/percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
