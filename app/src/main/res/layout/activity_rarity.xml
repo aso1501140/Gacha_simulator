@@ -43,19 +43,21 @@
         android:layout_marginEnd="87dp" />
 
     <EditText
-        android:id="@+id/rarity"
+        android:id="@+id/probability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
 
-        android:layout_alignBaseline="@+id/probability"
-        android:layout_alignBottom="@+id/probability"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBaseline="@+id/rarity"
+        android:layout_alignBottom="@+id/rarity"
+        android:layout_toRightOf="@+id/rarity"
+        android:layout_toEndOf="@+id/rarity"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp" />
 
     <EditText
-        android:id="@+id/probability"
+        android:id="@+id/rarity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
