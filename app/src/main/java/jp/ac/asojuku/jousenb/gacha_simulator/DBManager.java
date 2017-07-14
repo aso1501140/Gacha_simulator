@@ -51,6 +51,16 @@ public class DBManager extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //レアリティ表の取得
+    public String selectPercentList(SQLiteDatabase db){
+        String result = null;
+        String selectSql = "SELECT _id FROM game ORDER BY _id desc limit 1";
+        SQLiteCursor cursor = (SQLiteCursor)db.rawQuery(selectSql, null);
+        cursor.moveToFirst();
+        result = cursor.getString(0);
+        return result;
+    }
+
     //ゲームリスト削除
     public void deleteGameList(SQLiteDatabase db, int id){
         String deleteSql = "DELETE FROM game WHERE _id = ?";

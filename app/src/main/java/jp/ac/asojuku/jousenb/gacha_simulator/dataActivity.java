@@ -1,6 +1,7 @@
 package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,9 +18,8 @@ public class dataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
-
-        Button btn = (Button) findViewById(R.id.button);
-        Button button = (Button) findViewById(R.id.button2);
+        Button btn = (Button) findViewById(R.id.back);
+        Button button = (Button) findViewById(R.id.Registration);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +39,7 @@ public class dataActivity extends AppCompatActivity {
 
             }
         });
-    }
+}
 
     @Override
     protected void onPause() {
@@ -58,7 +58,7 @@ public class dataActivity extends AppCompatActivity {
 
         final EditText gachastone = (EditText)findViewById(R.id.gachastone);
 
-        Button insertButton = (Button)findViewById(R.id.button2);
+        Button insertButton = (Button)findViewById(R.id.Registration);
 
         insertButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +77,13 @@ public class dataActivity extends AppCompatActivity {
                 titles.setText("");
                 oneg.setText("");
                 gachastone.setText("");
+
+                String gid = dbm.selectPercentList(sqlDB);
+
+                Intent intent = new Intent(dataActivity.this,Rarity.class);
+                intent.putExtra("_id",gid);
+                startActivity(intent);
+
 
             }
         });
