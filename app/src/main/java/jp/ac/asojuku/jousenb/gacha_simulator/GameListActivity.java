@@ -130,8 +130,8 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
                 if (lastPosition != -1) {
                     //ゲーム表の取得
                     cursor = dbm.selectgameList(sqlDB, selectedID);
-                    money = cursor.getInt(1);
-                    stone = cursor.getInt(2);
+                    money = cursor.getInt(2);
+                    stone = cursor.getInt(3);
                     cursor.close();
 
                     //パーセントの取得

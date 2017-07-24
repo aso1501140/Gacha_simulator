@@ -151,7 +151,7 @@ public class gacha_activity extends AppCompatActivity {
                TextView2.setText("消費石:"+stone2+"個");
 
                TextView TextView3 = (TextView)findViewById(R.id.TextView3);
-               int money = cnt * ten;
+               int money = cnt * gmoney;
                //String money2 = String.valueOf(money);
                TextView3.setText("推定金額:"+money+"円");
 
