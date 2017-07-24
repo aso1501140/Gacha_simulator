@@ -1,17 +1,21 @@
 package jp.ac.asojuku.jousenb.gacha_simulator;
 
 import android.content.Intent;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class GameListActivity extends AppCompatActivity implements  AdapterView.OnItemClickListener{
 
@@ -22,7 +26,6 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
     //変数
     int selectedID = -1;
     int lastPosition = -1;
-
     int num;
 
     //かしこまり
@@ -76,6 +79,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         Button buttonAction1 = (Button) findViewById(R.id.backbutton);
         Button buttonAction2 = (Button) findViewById(R.id.deletebutton);
         Button buttonAction3 = (Button) findViewById(R.id.gachabutton);
+        Button buttonAction4 = (Button) findViewById(R.id.raritybutton);
         ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
 
         //戻る
@@ -95,6 +99,7 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
                 if (lastPosition != -1){
                     dbm.deleteGameList(sqlDB, selectedID);
 
+
                     //削除後のデータをリスト表示
                     ListView listAction = (ListView)findViewById(R.id.ListViewGameList);
                     setValueToList(listAction);
@@ -109,22 +114,69 @@ public class GameListActivity extends AppCompatActivity implements  AdapterView.
         });
 
         //ガチャ
-
         buttonAction3.setOnClickListener(new View.OnClickListener() {
+            //変数
+            SQLiteCursor cursor = null;
+            String[] rare = new String[3];
+            int[] perc = new int[3];
+            int i = 0;
+            int money = 0;
+            int stone = 0;
+
             @Override
             public void onClick(View view) {
+
                 //行がある
                 if (lastPosition != -1) {
-                    //ここにデータを送る処理を書く
-                    dbm.selectGameList(sqlDB);
+                    //ゲーム表の取得
+                    cursor = dbm.selectgameList(sqlDB, selectedID);
+                    money = cursor.getInt(1);
+                    stone = cursor.getInt(2);
+                    cursor.close();
+
+                    //パーセントの取得
+                    cursor = dbm.selectGPercentList(sqlDB, selectedID);
+                    for (boolean next =cursor.moveToFirst(); next; next = cursor.moveToNext()) {
+                        rare[i] = cursor.getString(1);
+                        perc[i] = cursor.getInt(2);
+                        Log.v("データ", rare[i]);
+                        Log.v("データ", String.valueOf(perc[i]));
+                        i++;
+                    }
+                    cursor.close();
+
+                    //遷移作へデータを飛ばす
                     Intent intent = new Intent(getApplicationContext(),gacha_activity.class);
-                    intent.putExtra("_id",num);
+                    intent.putExtra("rare",rare);
+                    intent.putExtra("perc",perc);
+                    intent.putExtra("money",money);
+                    intent.putExtra("stone",stone);
                     startActivity(intent);
                 }else {
                     Toast.makeText(getApplicationContext(),"ガチャる行を選択してください",Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+        buttonAction4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(lastPosition != 1) {
+                    String gid = dbm.selectPercentList(sqlDB);
+                    Intent intent = new Intent(GameListActivity.this, Rarity.class);
+                    intent.putExtra("_id", gid);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(),"追加する行を選択してください",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+
+
+
 
        //リストビューを押された時の処理
        listAction.setOnItemClickListener(new AdapterView.OnItemClickListener(){
